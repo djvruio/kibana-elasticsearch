@@ -2,11 +2,15 @@ version: "3.7"
 services: 
     elasticsearch:
         image: docker.elastic.co/elasticsearch/elasticsearch:7.6.2
+        container_name: es01
         environment: 
             - discovery.type=single-node
         ports:
             - 9200:9200
     kibana:
         image: docker.elastic.co/kibana/kibana:7.6.2
+        container_name: ki01
         ports:
             - 5601:5601
+networks:
+    default:
